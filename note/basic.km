@@ -1,0 +1,350 @@
+{
+    "root": {
+        "data": {
+            "id": "ciq1gey4kps0",
+            "created": 1647915964376,
+            "text": "C"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "ciq1qp9u5qg0",
+                    "created": 1647916770494,
+                    "text": "编译执行流程",
+                    "priority": 1,
+                    "note": "编写代码 => .c .h 源代码\n编译代码 => .obj/.o 文件(仅编写代码的机器码)\n链接代码 => .exe(还包含库函数和启动代码的机器码)\n",
+                    "layout_right_offset": {
+                        "x": 0,
+                        "y": -2
+                    },
+                    "expandState": "collapse"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "ciq1tett5ls0",
+                            "created": 1647916982849,
+                            "text": "编译",
+                            "priority": 2,
+                            "font-weight": "bold",
+                            "note": "**编译命令**\ngcc xxx.c -o test.o\ngcc xxx.c -o test.obj"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "ciq1th5ri8o0",
+                            "created": 1647916987926,
+                            "text": "链接",
+                            "priority": 2,
+                            "font-weight": "bold",
+                            "note": "**链接命令**\ngcc xxx.o -o test.exe"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "ciq1w351liw0",
+                            "created": 1647917192500,
+                            "text": "gcc 设置",
+                            "priority": 2,
+                            "font-weight": "bold",
+                            "note": "**设置GCC版本**\ngcc -std=c99 xxx.c\ngcc -std=c11 xxx.c\n"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "ciq23avemko0",
+                    "created": 1647917757880,
+                    "text": "关键字",
+                    "priority": 1
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "ciq23jo17740",
+                            "created": 1647917777026,
+                            "text": "类型",
+                            "priority": 2,
+                            "font-weight": "bold",
+                            "expandState": "expand"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "ciq250zt0880",
+                                    "created": 1647917893107,
+                                    "text": "short/int/long/signed/unsigned",
+                                    "note": "**signed 是C90添加的**\n\n### 1. 进制                  \n\n  1. 八进制\n      - %o / %#o\n      - 017\n  2. 十六进制\n      - %x / %#x\n      - 0x1a\n\n### 2. 整数\n\n  1. short/short int\n  \t  - 17\n  \t  - %h \n  2. long/long int\n      - 至少32位\n      - 17L\n      - %l\n  3. long long/long long int\n      - 至少64位\n      - 17LL\n      - %ll\n  4. unsigned/unsigned int\n      - 17u\n      - %u\n  5. int\n      - 可能16位\n      - 17\n      - %d",
+                                    "priority": 3
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciq256axvfc0",
+                                    "created": 1647917904664,
+                                    "text": "float/double/",
+                                    "note": "### 1.float\n\t- %f\n\t- 2.75f 3.11e3\n### 2.double\n\t- %f\n\t- 2.75 2.75d\n### 3.long double\n\t- %lf\n\t- 2.75",
+                                    "priority": 3
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciq25kxcysg0",
+                                    "created": 1647917936495,
+                                    "text": "char",
+                                    "priority": 3
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "ciq3gxo6m940",
+                                            "created": 1647921647354,
+                                            "text": "特殊字符",
+                                            "priority": 4,
+                                            "font-weight": "bold"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "ciq290iw05k0",
+                                    "created": 1647918205541,
+                                    "text": "void"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciq2ody94nc0",
+                                    "created": 1647919410230,
+                                    "text": "_Bool",
+                                    "note": "**C11 添加的**\n\n- true\n- false"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciq2pyprj600",
+                                    "created": 1647919533794,
+                                    "text": "_Complex/_Imaginary",
+                                    "note": "**C11 添加的**\n\n- _Complex 复数\n- _Imaginary 实数"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "ciq23lipq480",
+                            "created": 1647917781058,
+                            "text": "控制",
+                            "priority": 2,
+                            "font-weight": "bold",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "ciq26m0glko0",
+                                    "created": 1647918017223,
+                                    "text": "break/return/continue"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciq29lo3cm00",
+                                    "created": 1647918251568,
+                                    "text": "switch/case/default"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciq29rbrqv40",
+                                    "created": 1647918263883,
+                                    "text": "for/while/do"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciq2bmm6o940",
+                                    "created": 1647918410358,
+                                    "text": "goto/if/else"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "ciq248lxt6w0",
+                            "created": 1647917831319,
+                            "text": "新增",
+                            "priority": 2,
+                            "font-weight": "bold",
+                            "note": "C11 新增的关键字",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "ciq2ee2tbvk0",
+                                    "created": 1647918626864,
+                                    "text": "_Alignas"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciq2fhjki5c0",
+                                    "created": 1647918712772,
+                                    "text": "_Alignof"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciq2i1r4hww0",
+                                    "created": 1647918913493,
+                                    "text": "_Atomic"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciq2ivib7w80",
+                                    "created": 1647918978263,
+                                    "text": "_Generic"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciq2jggg8jc0",
+                                    "created": 1647919023863,
+                                    "text": "_Noreturn"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciq2jl60yn40",
+                                    "created": 1647919034117,
+                                    "text": "_Static_assert"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciq2jrb7kmw0",
+                                    "created": 1647919047491,
+                                    "text": "_Thread_local"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciq2jyqksgg0",
+                                    "created": 1647919063658,
+                                    "text": "volatile"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "ciq2a2sdp5k0",
+                            "created": 1647918288832,
+                            "text": "特殊",
+                            "priority": 2,
+                            "font-weight": "bold",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "ciq2as0u6hs0",
+                                    "created": 1647918343763,
+                                    "text": "auto/register/restrict"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciq2cqijmj40",
+                                    "created": 1647918497209,
+                                    "text": "extern"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciq2ct6x2yo0",
+                                    "created": 1647918503036,
+                                    "text": "sizeof"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciq2cw4l5e00",
+                                    "created": 1647918509425,
+                                    "text": "static",
+                                    "note": "**static 是C90添加的**"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciq2cz1m5800",
+                                    "created": 1647918515776,
+                                    "text": "const"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciq2d25tk540",
+                                    "created": 1647918522561,
+                                    "text": "struct/union/enum",
+                                    "note": "**enum 是C90添加的**"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciq2d4xa9ow0",
+                                    "created": 1647918528575,
+                                    "text": "inline"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciq2d89yzco0",
+                                    "created": 1647918535872,
+                                    "text": "typedef"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}
