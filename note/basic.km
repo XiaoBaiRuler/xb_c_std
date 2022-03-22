@@ -3,9 +3,20 @@
         "data": {
             "id": "ciq1gey4kps0",
             "created": 1647915964376,
-            "text": "C"
+            "text": "C",
+            "note": "### param\n\t1. char *\n    2. void * ...(从左往右)\n### return\n\t1. 输入个数\n    2. 错误: 负数"
         },
         "children": [
+            {
+                "data": {
+                    "id": "ciq6uyas7hs0",
+                    "created": 1647931209148,
+                    "text": "预处理器",
+                    "priority": 1,
+                    "note": "1. 定义明示常量\n#define A 100"
+                },
+                "children": []
+            },
             {
                 "data": {
                     "id": "ciq1qp9u5qg0",
@@ -13,10 +24,6 @@
                     "text": "编译执行流程",
                     "priority": 1,
                     "note": "编写代码 => .c .h 源代码\n编译代码 => .obj/.o 文件(仅编写代码的机器码)\n链接代码 => .exe(还包含库函数和启动代码的机器码)\n",
-                    "layout_right_offset": {
-                        "x": 0,
-                        "y": -2
-                    },
                     "expandState": "collapse"
                 },
                 "children": [
@@ -60,7 +67,8 @@
                     "id": "ciq23avemko0",
                     "created": 1647917757880,
                     "text": "关键字",
-                    "priority": 1
+                    "priority": 1,
+                    "expandState": "collapse"
                 },
                 "children": [
                     {
@@ -70,7 +78,7 @@
                             "text": "类型",
                             "priority": 2,
                             "font-weight": "bold",
-                            "expandState": "expand"
+                            "expandState": "collapse"
                         },
                         "children": [
                             {
@@ -78,17 +86,29 @@
                                     "id": "ciq250zt0880",
                                     "created": 1647917893107,
                                     "text": "short/int/long/signed/unsigned",
-                                    "note": "**signed 是C90添加的**\n\n### 1. 进制                  \n\n  1. 八进制\n      - %o / %#o\n      - 017\n  2. 十六进制\n      - %x / %#x\n      - 0x1a\n\n### 2. 整数\n\n  1. short/short int\n  \t  - 17\n  \t  - %h \n  2. long/long int\n      - 至少32位\n      - 17L\n      - %l\n  3. long long/long long int\n      - 至少64位\n      - 17LL\n      - %ll\n  4. unsigned/unsigned int\n      - 17u\n      - %u\n  5. int\n      - 可能16位\n      - 17\n      - %d",
-                                    "priority": 3
+                                    "note": "**signed 是C90添加的**\n\n### 1. 进制                  \n\n  1. 八进制\n      - %o / %#o\n      - 017\n  2. 十六进制\n      - %x / %#x\n      - 0x1a\n\n### 2. 整数\n\n  1. short/short int\n  \t  - 17\n  \t  - %h \n  2. long/long int\n      - 至少32位\n      - 17L\n      - %l\n  3. long long/long long int\n      - 至少64位\n      - 17LL\n      - %ll\n  4. unsigned/unsigned int\n      - 17u\n      - %u\n  5. int\n      - 可能16位\n      - 17\n      - %d %i",
+                                    "priority": 3,
+                                    "expandState": "expand"
                                 },
-                                "children": []
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "ciq5wmijdoo0",
+                                            "created": 1647928519114,
+                                            "text": "大小",
+                                            "priority": 4,
+                                            "note": "为了确保不同系统大小一致\n- stdint.h\n- inttypes.h\n- eg: \n\t- 大小int32_t int16_t\n\t- 最小宽度：int_least8_t\n    - 最快最小: int_fast8_t\n    - 最大有符号整数: intmax_t\n    - 最大无符号整数: unitmax_t\n- limits.h\n - 所有类型最大值和最小值\n - INT_MAX INT_MIN"
+                                        },
+                                        "children": []
+                                    }
+                                ]
                             },
                             {
                                 "data": {
                                     "id": "ciq256axvfc0",
                                     "created": 1647917904664,
                                     "text": "float/double/",
-                                    "note": "### 1.float\n\t- %f\n\t- 2.75f 3.11e3\n### 2.double\n\t- %f\n\t- 2.75 2.75d\n### 3.long double\n\t- %lf\n\t- 2.75",
+                                    "note": "### 0.前提\n\t- float.h\n### 1.float\n\t- %f %e %a(16)\n\t- 2.75f 3.11e3 .4 100.\n### 2.double\n\t- %f %e %a(16)\n\t- 2.75 2.75d\n### 3.long double\n\t- %lf %le %la(16)\n\t- 2.75",
                                     "priority": 3
                                 },
                                 "children": []
@@ -98,7 +118,9 @@
                                     "id": "ciq25kxcysg0",
                                     "created": 1647917936495,
                                     "text": "char",
-                                    "priority": 3
+                                    "priority": 3,
+                                    "note": "- 'a' 97\n- 'A' 65\n- '0' 48\n- %c",
+                                    "expandState": "collapse"
                                 },
                                 "children": [
                                     {
@@ -107,7 +129,50 @@
                                             "created": 1647921647354,
                                             "text": "特殊字符",
                                             "priority": 4,
-                                            "font-weight": "bold"
+                                            "font-weight": "bold",
+                                            "note": "- '\\0' 空字符\n- '\\n' 换行符\n- '\\r' 回车符"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "ciq2ody94nc0",
+                                    "created": 1647919410230,
+                                    "text": "_Bool",
+                                    "note": "**C11 添加的**\n\n- true 1\n- false 0\n- stdbool.h",
+                                    "priority": 3
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciq2pyprj600",
+                                    "created": 1647919533794,
+                                    "text": "_Complex/_Imaginary",
+                                    "note": "**C11 添加的**\n\n- _Complex 复数\n- _Imaginary 实数",
+                                    "priority": 3,
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "ciq68qckols0",
+                                            "created": 1647929467831,
+                                            "text": "_Complex",
+                                            "note": "### 1.三种类型\n\t- float _Complex\n\t- double _Complex\n    - long doule _Complex \n### 2.使用\n\t- complex.h\n\t- %g\n\t- crealf() 实数\n    - crimagf() 虚数",
+                                            "priority": 4
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "ciq6hnscgqw0",
+                                            "created": 1647930167531,
+                                            "text": "_Imaginary",
+                                            "priority": 4,
+                                            "note": "### 1.三种类型\n\t- float _Imaginary\n\t- double _Imaginary\n    - long doule _Imaginary "
                                         },
                                         "children": []
                                     }
@@ -117,25 +182,9 @@
                                 "data": {
                                     "id": "ciq290iw05k0",
                                     "created": 1647918205541,
-                                    "text": "void"
-                                },
-                                "children": []
-                            },
-                            {
-                                "data": {
-                                    "id": "ciq2ody94nc0",
-                                    "created": 1647919410230,
-                                    "text": "_Bool",
-                                    "note": "**C11 添加的**\n\n- true\n- false"
-                                },
-                                "children": []
-                            },
-                            {
-                                "data": {
-                                    "id": "ciq2pyprj600",
-                                    "created": 1647919533794,
-                                    "text": "_Complex/_Imaginary",
-                                    "note": "**C11 添加的**\n\n- _Complex 复数\n- _Imaginary 实数"
+                                    "text": "void",
+                                    "priority": 3,
+                                    "note": "1. **void 空类型**\n2. **void \\*空指针**\n\t1. 可以赋值给任何指针(为了跟C++适配要强制转换)\n    2. 任何指针类型可以赋值给空指针\n3. 指针 %p"
                                 },
                                 "children": []
                             }
@@ -274,6 +323,28 @@
                         "children": [
                             {
                                 "data": {
+                                    "id": "ciq2ct6x2yo0",
+                                    "created": 1647918503036,
+                                    "text": "sizeof",
+                                    "note": "1. 对于变量/类型名\n\t- sizeof(xx)\n2. 对于变量\n\t- sizeof xx\n3. 返回值看作常量且为size_t",
+                                    "priority": 3,
+                                    "font-weight": "bold"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciq2cz1m5800",
+                                    "created": 1647918515776,
+                                    "text": "const",
+                                    "note": "**限定只读**\n- 修饰变量依然不是静态区的常量,\n  只是不能修改了。\n",
+                                    "priority": 3,
+                                    "font-weight": "bold"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
                                     "id": "ciq2as0u6hs0",
                                     "created": 1647918343763,
                                     "text": "auto/register/restrict"
@@ -290,26 +361,10 @@
                             },
                             {
                                 "data": {
-                                    "id": "ciq2ct6x2yo0",
-                                    "created": 1647918503036,
-                                    "text": "sizeof"
-                                },
-                                "children": []
-                            },
-                            {
-                                "data": {
                                     "id": "ciq2cw4l5e00",
                                     "created": 1647918509425,
                                     "text": "static",
                                     "note": "**static 是C90添加的**"
-                                },
-                                "children": []
-                            },
-                            {
-                                "data": {
-                                    "id": "ciq2cz1m5800",
-                                    "created": 1647918515776,
-                                    "text": "const"
                                 },
                                 "children": []
                             },
@@ -335,6 +390,72 @@
                                     "id": "ciq2d89yzco0",
                                     "created": 1647918535872,
                                     "text": "typedef"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "ciq6lmqc2e80",
+                    "created": 1647930478690,
+                    "text": "库函数",
+                    "priority": 1,
+                    "expandState": "expand"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "ciq6mxba2ao0",
+                            "created": 1647930580088,
+                            "text": "string.h",
+                            "priority": 1,
+                            "font-weight": "bold"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "ciq6n8d9yow0",
+                                    "created": 1647930604153,
+                                    "text": "strlen()",
+                                    "priority": 2,
+                                    "note": "### params\n    1. char *\n### return\n    1. unsigned int/size_t\n    2. 到'\\0'之前的长度",
+                                    "font-weight": "bold"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "ciq6obztk540",
+                            "created": 1647930690411,
+                            "text": "stdio.h",
+                            "font-weight": "bold",
+                            "priority": 1
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "ciq6oy4s1uo0",
+                                    "created": 1647930738600,
+                                    "text": "printf()",
+                                    "font-weight": "bold",
+                                    "priority": 2,
+                                    "note": "### params\n    1. char *\n    2. ...(从右往左执行，压栈)\n### return\n    1. 打印字符个数\n    2. 错误: 负数\n### char \\* 参数标记\n\t1. %s 字符串\n    2. %% 打印一个%\n    3. .数字 表示小数精度\n    4. %td ptrdiff_t 指针之间的差值\n    5. %zd size_t sizeof返回类型\n### char \\* 格式标记\n\t1. %-20s 左对齐\n    2. %+6.2f 加号\n    3. % d(前导空格/0) 若为负数，\n    空格变符号\n    4. %#o 加进制的0 0x\n"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciq6ovwlbbs0",
+                                    "created": 1647930733752,
+                                    "text": "scanf()",
+                                    "font-weight": "bold",
+                                    "priority": 2,
+                                    "note": "### params\n    1. char *\n    2. void* ...(从右往左)\n### return\n    1. 输入个数\n    2. 错误: 负数"
                                 },
                                 "children": []
                             }
