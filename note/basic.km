@@ -399,11 +399,54 @@
             },
             {
                 "data": {
+                    "id": "cir58bvm6wg0",
+                    "created": 1648028175177,
+                    "text": "运算符",
+                    "priority": 1
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "cir58jk52600",
+                            "created": 1648028191897,
+                            "text": "算术运算符",
+                            "font-weight": "bold",
+                            "priority": 2,
+                            "note": "### - + ++ -- sizeof (**r->l**)\n### * / % (l->r)\n### + - (l->r)"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "cir59ccspbk0",
+                            "created": 1648028254580,
+                            "text": "关系运算符",
+                            "font-weight": "bold",
+                            "priority": 2,
+                            "note": "### > < <= >= (l->r) \n### == != (l->r)"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "cir5dnoc52o0",
+                            "created": 1648028592679,
+                            "text": "赋值运算符",
+                            "priority": 2,
+                            "font-weight": "bold",
+                            "note": "### = [+-\\*/%]= (r->l)"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
                     "id": "ciq6lmqc2e80",
                     "created": 1647930478690,
                     "text": "库函数",
                     "priority": 1,
-                    "expandState": "expand"
+                    "expandState": "collapse"
                 },
                 "children": [
                     {
@@ -455,7 +498,7 @@
                                     "text": "scanf()",
                                     "font-weight": "bold",
                                     "priority": 2,
-                                    "note": "### params\n    1. char *\n    2. void* ...(从右往左)\n### return\n    1. 输入个数\n    2. 错误: 负数"
+                                    "note": "### params\n    1. char *\n    2. void* ...(从右往左)\n### return\n    1. 输入个数\n    2. 错误: 负数\n### 格式说明符\n\t1. * %*d 抑制赋值\n    2. 数字 %10d 最长宽度，\n    或遇到空白符时停止\n### 输入格式说明符\n\t1. %s 从第一个非空白开始，\n    到下一个空白结束\n    2. ' %c' 从第一个非空白处\n    读取字符\n    3. '%c' 读取第一个字符\n### 注意事项\n\t1. 在第一个出错处停止读取输入\n    "
                                 },
                                 "children": []
                             }
