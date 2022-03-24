@@ -4,7 +4,8 @@
             "id": "ciq1gey4kps0",
             "created": 1647915964376,
             "text": "C",
-            "note": "### param\n\t1. char *\n    2. void * ...(从左往右)\n### return\n\t1. 输入个数\n    2. 错误: 负数"
+            "note": " ",
+            "progress": null
         },
         "children": [
             {
@@ -24,7 +25,7 @@
                     "text": "编译执行流程",
                     "priority": 1,
                     "note": "编写代码 => .c .h 源代码\n编译代码 => .obj/.o 文件(仅编写代码的机器码)\n链接代码 => .exe(还包含库函数和启动代码的机器码)\n",
-                    "expandState": "collapse"
+                    "expandState": "expand"
                 },
                 "children": [
                     {
@@ -51,12 +52,34 @@
                     },
                     {
                         "data": {
+                            "id": "cis6nm08tq00",
+                            "created": 1648133753754,
+                            "text": "执行",
+                            "priority": 2,
+                            "font-weight": "bold"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "cis6o2521sw0",
+                                    "created": 1648133788873,
+                                    "text": "命令行参数",
+                                    "font-weight": "bold",
+                                    "priority": 3
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
                             "id": "ciq1w351liw0",
                             "created": 1647917192500,
                             "text": "gcc 设置",
                             "priority": 2,
                             "font-weight": "bold",
-                            "note": "**设置GCC版本**\ngcc -std=c99 xxx.c\ngcc -std=c11 xxx.c\n"
+                            "note": "**设置GCC版本**\ngcc -std=c99 xxx.c\ngcc -std=c11 xxx.c\n",
+                            "expandState": "expand"
                         },
                         "children": []
                     }
@@ -69,7 +92,7 @@
                     "text": "数组",
                     "priority": 1,
                     "font-weight": "bold",
-                    "note": "### 原则\n1. C不会检查边界\n### 复合字面量\n1. (int [2]){1, 2}",
+                    "note": "### 原则\n1. C不会检查边界\n\n### 复合字面量\n1. (int [2]){1, 2}",
                     "expandState": "collapse"
                 },
                 "children": [
@@ -523,7 +546,7 @@
                             "text": "string.h",
                             "priority": 1,
                             "font-weight": "bold",
-                            "expandState": "expand",
+                            "expandState": "collapse",
                             "note": "- 以'\\0'结尾的char型数组\n- 字符串常量: \"abc\", 可以\\*取地址, 特别的: 相同字符串常量是都一个常量，相同地址(静态存储区)\n- char a[] = \"abc\"; 会赋值到非静态存储区\n"
                         },
                         "children": [
@@ -537,6 +560,75 @@
                                     "font-weight": "bold"
                                 },
                                 "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "cis66dvf0hs0",
+                                    "created": 1648132403857,
+                                    "text": "strcat()",
+                                    "font-weight": "bold",
+                                    "priority": 2,
+                                    "note": "### param\n\t- char * 目标字符串\n    - char * 源字符串\n### return\n\t- char * 目标字符串的地址\n### result\n\t- 目标字符串后接源字符串，\n    然后返回目标字符串地址\n    - 第一个字符串变了\n    - 第二个字符串不变\n    "
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cis6a0zjqhk0",
+                                            "created": 1648132689265,
+                                            "text": "strncat()",
+                                            "font-weight": "bold",
+                                            "priority": 3,
+                                            "note": "### param\n\t- char * 目标字符串\n    - char * 源字符串\n    - size_t 最大长度\n### return\n\t- char * 第一个字符串地址\n### result\n\t- 直到max - 1个字符停止，末尾不上'\\0'\n    - 补充最大长度，是为了防止目标字符串长度不够"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "cis6bzg5i6w0",
+                                    "created": 1648132842644,
+                                    "text": "strcmp",
+                                    "font-weight": "bold",
+                                    "priority": 2,
+                                    "note": "### param\n\t- char * 第一个字符串\n    - char * 第二个字符串\n### return\n\t- int \n    当1 == 2时，为0\n    当1 > 2时，为正数\n    当1 < 2时，为负数"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cis6dqxmbsg0",
+                                            "created": 1648132980837,
+                                            "text": "strncmp()",
+                                            "font-weight": "bold",
+                                            "priority": 3,
+                                            "note": "### param\n\t- char * 第一个字符串\n    - char * 第二个字符串\n    - size_t 比较最大长度\n### return\n\t- int \n    当1 == 2时，为0\n    当1 > 2时，为正数\n    当1 < 2时，为负数\n### result\n\t只比较前面n个字符"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "cis6enlx3rk0",
+                                    "created": 1648133051964,
+                                    "text": "strcpy",
+                                    "font-weight": "bold",
+                                    "priority": 2,
+                                    "note": "### param\n\t- char * 目标字符串\n    - char * 源字符串\n### return \n\t- char * 目标字符串\n### result\n\t- 把源字符串复制到目标字符串，没有检查是否能存的下"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cis6hx6pl3c0",
+                                            "created": 1648133307904,
+                                            "text": "strncpy()",
+                                            "font-weight": "bold",
+                                            "priority": 3,
+                                            "note": "### param\n\t- char * 目标字符串\n    - char * 源字符串\n    - size_t 可拷贝的最大长度\n### return \n\t- char * 目标字符串\n### result\n\t- 把源字符串复制到目标字符串\n    - 当目标长度不够时，可能会没有复制到'\\0'"
+                                        },
+                                        "children": []
+                                    }
+                                ]
                             }
                         ]
                     },
@@ -554,10 +646,10 @@
                                 "data": {
                                     "id": "cis0rijvxzk0",
                                     "created": 1648117133032,
-                                    "text": "字符串",
+                                    "text": "输入输出字符串",
                                     "font-weight": "bold",
                                     "priority": 1,
-                                    "expandState": "expand"
+                                    "expandState": "collapse"
                                 },
                                 "children": [
                                     {
@@ -566,7 +658,8 @@
                                             "created": 1648117116524,
                                             "text": "fputs()",
                                             "font-weight": "bold",
-                                            "priority": 2
+                                            "priority": 2,
+                                            "note": "### param\n\t- char * 输出的字符串指针\n    - FILE * 输出的文件(stdout)\n### return\n\t- 若成功，返回char *\n    - 若失败，返回NULL\n### result\n\t- 打印字符，直到'\\0'，\n      不额外添加换行符"
                                         },
                                         "children": []
                                     },
@@ -576,9 +669,22 @@
                                             "created": 1648117091502,
                                             "text": "fgets()",
                                             "priority": 2,
-                                            "font-weight": "bold"
+                                            "font-weight": "bold",
+                                            "note": "### param\n\t- char * 字符指针(存字符串)\n    - size_t 最大长度(带上'\\0')\n    - FILE *stream 输入文件(stdin)\n### return \n\t- 成功输入字符:\n    char * 输入的字符串(和参数同)\n    - 没有输入字符或失败:\n    NULL\n### result\n\t- 当换行时停止，记录换行符",
+                                            "expandState": "collapse"
                                         },
-                                        "children": []
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "cis614rxy2g0",
+                                                    "created": 1648131992235,
+                                                    "text": "fgets_s()",
+                                                    "priority": 3,
+                                                    "note": "### C11添加(可选)\n### param\n\t- char * 字符指针(存字符串)\n    - size_t 最大长度(带上'\\0')\n### return \n\t- 成功输入字符:\n    char * 输入的字符串(和参数同)\n    - 没有输入字符或失败:\n    NULL\n### result\n\t- 当换行时停止，记录换行符\n    - 当超过最大字符数，还没有换行时: 丢弃剩下的, 直到读到换行位置，然后返回NULL"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
                                     },
                                     {
                                         "data": {
@@ -608,7 +714,7 @@
                                 "data": {
                                     "id": "cis0s4tq9k00",
                                     "created": 1648117181516,
-                                    "text": "字符",
+                                    "text": "输入输出字符",
                                     "font-weight": "bold",
                                     "priority": 1,
                                     "expandState": "collapse"
@@ -642,10 +748,10 @@
                                 "data": {
                                     "id": "cis0sf5vvc80",
                                     "created": 1648117204020,
-                                    "text": "通用",
+                                    "text": "通用输入输出",
                                     "font-weight": "bold",
                                     "priority": 1,
-                                    "expandState": "collapse"
+                                    "expandState": "expand"
                                 },
                                 "children": [
                                     {
@@ -667,6 +773,17 @@
                                             "font-weight": "bold",
                                             "priority": 2,
                                             "note": "### params\n    1. char *\n    2. void* ...(从右往左)\n### return\n    1. 输入个数\n    2. 错误: 负数\n### 格式说明符\n\t1. * %*d 抑制赋值\n    2. 数字 %10d 最长宽度，\n    或遇到空白符时停止\n### 输入格式说明符\n\t1. %s 从第一个非空白开始，\n    到下一个空白结束\n    2. ' %c' 从第一个非空白处\n    读取字符\n    3. '%c' 读取第一个字符\n### 注意事项\n\t1. 在第一个出错处停止读取输入\n    "
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "cis6l2jqlq00",
+                                            "created": 1648133554669,
+                                            "text": "sprinf()",
+                                            "font-weight": "bold",
+                                            "priority": 2,
+                                            "note": "### params\n\t1. char * 字符数组\n    2. char * 格式字符串\n    3. ...(从右往左执行，压栈)\n### return\n    1. 打印字符个数\n    2. 错误: 负数\n### char \\* 参数标记\n\t1. %s 字符串\n    2. %% 打印一个%\n    3. .数字 表示小数精度\n    4. %td ptrdiff_t 指针之间的差值\n    5. %zd size_t sizeof返回类型\n### char \\* 格式标记\n\t1. %-20s 左对齐\n    2. %+6.2f 加号\n    3. % d(前导空格/0) 若为负数，\n    空格变符号\n    4. %#o 加进制的0 0x"
                                         },
                                         "children": []
                                     }
