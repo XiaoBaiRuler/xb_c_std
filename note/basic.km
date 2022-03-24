@@ -64,6 +64,30 @@
             },
             {
                 "data": {
+                    "id": "cis03i12be00",
+                    "created": 1648115251153,
+                    "text": "数组",
+                    "priority": 1,
+                    "font-weight": "bold",
+                    "note": "### 原则\n1. C不会检查边界\n### 复合字面量\n1. (int [2]){1, 2}",
+                    "expandState": "collapse"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "cis042lognk0",
+                            "created": 1648115295936,
+                            "text": "定义和初始化",
+                            "priority": 2,
+                            "font-weight": "bold",
+                            "note": "### 一般\n- 没有进行初始化\nint a[10];\n### malloc\n- 没有进行初始化\nint *a = (int *) malloc(6 * sizeof(int)); \n### calloc\n- 进行初始化为0\nint *a = (int *) calloc(6,  sizeof(int));\n### {}初始化\n- 不赋值，默认为0\nint a[4] = {1, 2, 3};\nint a[4] = {[2] = 1, 4};"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
                     "id": "ciq23avemko0",
                     "created": 1647917757880,
                     "text": "关键字",
@@ -402,7 +426,8 @@
                     "id": "cir58bvm6wg0",
                     "created": 1648028175177,
                     "text": "运算符",
-                    "priority": 1
+                    "priority": 1,
+                    "expandState": "collapse"
                 },
                 "children": [
                     {
@@ -429,12 +454,53 @@
                     },
                     {
                         "data": {
+                            "id": "cirzhx8g22w0",
+                            "created": 1648113560240,
+                            "text": "逻辑运算符",
+                            "priority": 2,
+                            "note": "### &&\n### ||\n### ！优先级只比()低\n### io646.h\n使用and or not"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "cirzlemey5s0",
+                            "created": 1648113833182,
+                            "text": "条件运算符",
+                            "priority": 2,
+                            "note": "### ?: (r->l)"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
                             "id": "cir5dnoc52o0",
                             "created": 1648028592679,
                             "text": "赋值运算符",
                             "priority": 2,
                             "font-weight": "bold",
                             "note": "### = [+-\\*/%]= (r->l)"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "cirvdkagqiw0",
+                            "created": 1648101934168,
+                            "text": "逗号运算符",
+                            "priority": 2,
+                            "note": "   int i = 10,100;\n=> int i = 10; 100;\n"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "cis021hcm9c0",
+                            "created": 1648115136769,
+                            "text": "&*",
+                            "priority": 1,
+                            "font-weight": "bold",
+                            "note": "### &取地址运算符\n### \\*地址运算符 解引用"
                         },
                         "children": []
                     }
@@ -446,7 +512,8 @@
                     "created": 1647930478690,
                     "text": "库函数",
                     "priority": 1,
-                    "expandState": "collapse"
+                    "expandState": "expand",
+                    "note": "### &&\n### ||\n### ！"
                 },
                 "children": [
                     {
@@ -455,7 +522,9 @@
                             "created": 1647930580088,
                             "text": "string.h",
                             "priority": 1,
-                            "font-weight": "bold"
+                            "font-weight": "bold",
+                            "expandState": "expand",
+                            "note": "- 以'\\0'结尾的char型数组\n- 字符串常量: \"abc\", 可以\\*取地址, 特别的: 相同字符串常量是都一个常量，相同地址(静态存储区)\n- char a[] = \"abc\"; 会赋值到非静态存储区\n"
                         },
                         "children": [
                             {
@@ -477,28 +546,194 @@
                             "created": 1647930690411,
                             "text": "stdio.h",
                             "font-weight": "bold",
-                            "priority": 1
+                            "priority": 1,
+                            "expandState": "expand"
                         },
                         "children": [
                             {
                                 "data": {
-                                    "id": "ciq6oy4s1uo0",
-                                    "created": 1647930738600,
-                                    "text": "printf()",
+                                    "id": "cis0rijvxzk0",
+                                    "created": 1648117133032,
+                                    "text": "字符串",
                                     "font-weight": "bold",
+                                    "priority": 1,
+                                    "expandState": "expand"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cis0rayvn7s0",
+                                            "created": 1648117116524,
+                                            "text": "fputs()",
+                                            "font-weight": "bold",
+                                            "priority": 2
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "cis0qzh23yg0",
+                                            "created": 1648117091502,
+                                            "text": "fgets()",
+                                            "priority": 2,
+                                            "font-weight": "bold"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "cis0oin1d7c0",
+                                            "created": 1648116898130,
+                                            "text": "gets()",
+                                            "priority": 2,
+                                            "font-weight": "bold",
+                                            "note": "### return\n\t- char *\n### result\n\t- 读取整行输入，直到遇到换行符(舍弃)，并补充一个'\\0'\n### 问题\n\t- 如果字符串过长会导致缓冲区溢出\n    - "
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "cis0hq45v200",
+                                            "created": 1648116365853,
+                                            "text": "puts()",
+                                            "priority": 2,
+                                            "font-weight": "bold",
+                                            "note": "### param\n\t- char *: 字符串\n### result\n\t- 自动在显示的字符串末尾加上换行符"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "cis0s4tq9k00",
+                                    "created": 1648117181516,
+                                    "text": "字符",
+                                    "font-weight": "bold",
+                                    "priority": 1,
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cirvlrvsvhk0",
+                                            "created": 1648102577609,
+                                            "text": "getchar()",
+                                            "priority": 2,
+                                            "font-weight": "bold",
+                                            "note": "### param\n\t- char"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "cirvk3qta540",
+                                            "created": 1648102446700,
+                                            "text": "putchar()",
+                                            "priority": 2,
+                                            "font-weight": "bold",
+                                            "note": "### return\n\t- 键盘输入的字符(any)"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "cis0sf5vvc80",
+                                    "created": 1648117204020,
+                                    "text": "通用",
+                                    "font-weight": "bold",
+                                    "priority": 1,
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "ciq6oy4s1uo0",
+                                            "created": 1647930738600,
+                                            "text": "printf()",
+                                            "font-weight": "bold",
+                                            "priority": 2,
+                                            "note": "### params\n    1. char *\n    2. ...(从右往左执行，压栈)\n### return\n    1. 打印字符个数\n    2. 错误: 负数\n### char \\* 参数标记\n\t1. %s 字符串\n    2. %% 打印一个%\n    3. .数字 表示小数精度\n    4. %td ptrdiff_t 指针之间的差值\n    5. %zd size_t sizeof返回类型\n### char \\* 格式标记\n\t1. %-20s 左对齐\n    2. %+6.2f 加号\n    3. % d(前导空格/0) 若为负数，\n    空格变符号\n    4. %#o 加进制的0 0x\n"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "ciq6ovwlbbs0",
+                                            "created": 1647930733752,
+                                            "text": "scanf()",
+                                            "font-weight": "bold",
+                                            "priority": 2,
+                                            "note": "### params\n    1. char *\n    2. void* ...(从右往左)\n### return\n    1. 输入个数\n    2. 错误: 负数\n### 格式说明符\n\t1. * %*d 抑制赋值\n    2. 数字 %10d 最长宽度，\n    或遇到空白符时停止\n### 输入格式说明符\n\t1. %s 从第一个非空白开始，\n    到下一个空白结束\n    2. ' %c' 从第一个非空白处\n    读取字符\n    3. '%c' 读取第一个字符\n### 注意事项\n\t1. 在第一个出错处停止读取输入\n    "
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "cirvmkmxib40",
+                            "created": 1648102640199,
+                            "text": "ctype.h",
+                            "font-weight": "bold",
+                            "priority": 1,
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "cirvn4iywmw0",
+                                    "created": 1648102683495,
+                                    "text": "islower()/isupper()",
                                     "priority": 2,
-                                    "note": "### params\n    1. char *\n    2. ...(从右往左执行，压栈)\n### return\n    1. 打印字符个数\n    2. 错误: 负数\n### char \\* 参数标记\n\t1. %s 字符串\n    2. %% 打印一个%\n    3. .数字 表示小数精度\n    4. %td ptrdiff_t 指针之间的差值\n    5. %zd size_t sizeof返回类型\n### char \\* 格式标记\n\t1. %-20s 左对齐\n    2. %+6.2f 加号\n    3. % d(前导空格/0) 若为负数，\n    空格变符号\n    4. %#o 加进制的0 0x\n"
+                                    "font-weight": "bold",
+                                    "note": "## islower/isupper\n\t是否小/大写字符\n    param\n\t- char\n    return\n    - _Bool\n\t\n    "
                                 },
                                 "children": []
                             },
                             {
                                 "data": {
-                                    "id": "ciq6ovwlbbs0",
-                                    "created": 1647930733752,
-                                    "text": "scanf()",
+                                    "id": "cirvq36zjtk0",
+                                    "created": 1648102915686,
+                                    "text": "tolower()/toupper()",
                                     "font-weight": "bold",
                                     "priority": 2,
-                                    "note": "### params\n    1. char *\n    2. void* ...(从右往左)\n### return\n    1. 输入个数\n    2. 错误: 负数\n### 格式说明符\n\t1. * %*d 抑制赋值\n    2. 数字 %10d 最长宽度，\n    或遇到空白符时停止\n### 输入格式说明符\n\t1. %s 从第一个非空白开始，\n    到下一个空白结束\n    2. ' %c' 从第一个非空白处\n    读取字符\n    3. '%c' 读取第一个字符\n### 注意事项\n\t1. 在第一个出错处停止读取输入\n    "
+                                    "note": "## 变小/大写字符"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "cirzr2j9os80",
+                            "created": 1648114277056,
+                            "text": "conio.h",
+                            "priority": 4,
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "cirzrbyzry80",
+                                    "created": 1648114297598,
+                                    "text": "getche()",
+                                    "font-weight": "bold",
+                                    "note": "### 回显无缓冲的输入字符函数\n### return\n\t- char"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "cirzrkaa6e80",
+                                    "created": 1648114315694,
+                                    "text": "getch()",
+                                    "font-weight": "bold",
+                                    "note": "### 无回显无缓冲输入函数\n### return\n\t- char"
                                 },
                                 "children": []
                             }
