@@ -4,7 +4,7 @@
             "id": "ciq1gey4kps0",
             "created": 1647915964376,
             "text": "C",
-            "note": " ",
+            "note": null,
             "progress": null
         },
         "children": [
@@ -406,14 +406,6 @@
                             },
                             {
                                 "data": {
-                                    "id": "ciq2i1r4hww0",
-                                    "created": 1647918913493,
-                                    "text": "_Atomic"
-                                },
-                                "children": []
-                            },
-                            {
-                                "data": {
                                     "id": "ciq2ivib7w80",
                                     "created": 1647918978263,
                                     "text": "_Generic"
@@ -441,14 +433,6 @@
                                     "id": "ciq2jrb7kmw0",
                                     "created": 1647919047491,
                                     "text": "_Thread_local"
-                                },
-                                "children": []
-                            },
-                            {
-                                "data": {
-                                    "id": "ciq2jyqksgg0",
-                                    "created": 1647919063658,
-                                    "text": "volatile"
                                 },
                                 "children": []
                             }
@@ -491,7 +475,7 @@
                                     "id": "ciq2as0u6hs0",
                                     "created": 1647918343763,
                                     "text": "auto/register/restrict",
-                                    "note": "- auto 显式强调覆盖掉外部定义的同名 变量\n- register 声明寄存器变量，无法获取寄存器变量地址，存储在CPU的寄存器中\n\t- 比普通的访问和处理的速度快\n    - 块作用域，无链接和自动存储期\n    - 存不了double那么大的空间",
+                                    "note": "- auto 显式强调覆盖掉外部定义的同名 变量\n- register 声明寄存器变量，无法获取寄存器变量地址，存储在CPU的寄存器中\n\t- 比普通的访问和处理的速度快\n    - 块作用域，无链接和自动存储期\n    - 存不了double那么大的空间\n- restrict 只能用于指针，表明该指针是访问数据对象的唯一且初始的方式，允许编译器优化某部分代码",
                                     "priority": 3,
                                     "font-weight": "bold"
                                 },
@@ -514,6 +498,28 @@
                                     "created": 1647918509425,
                                     "text": "static",
                                     "note": "**static 是C90添加的**\n- 修饰文件变量表示内部链接\n- 修饰自动周期的变量-提供静态存储期\n- 默认初始化为0\n\n- 修饰函数为静态函数(内联函数)\n\t- 只能用于其定义所在的文件(防止同名冲突)\n",
+                                    "priority": 3,
+                                    "font-weight": "bold"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciq2jyqksgg0",
+                                    "created": 1647919063658,
+                                    "text": "volatile",
+                                    "font-weight": "bold",
+                                    "priority": 3,
+                                    "note": "- 电脑，代理(非变量所在程序)可以改变该变量的值[为了防止编译器优化代码]\n- eg: 当前的时钟时间"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciq2i1r4hww0",
+                                    "created": 1647918913493,
+                                    "text": "_Atomic",
+                                    "note": "stdatomic.h threads.h\n\\_Atomic 声明变量，表明这个变量是原子的",
                                     "priority": 3,
                                     "font-weight": "bold"
                                 },
@@ -639,8 +645,8 @@
                     "created": 1647930478690,
                     "text": "库函数",
                     "priority": 1,
-                    "expandState": "collapse",
-                    "note": "### &&\n### ||\n### ！"
+                    "expandState": "expand",
+                    "note": null
                 },
                 "children": [
                     {
@@ -743,7 +749,7 @@
                             "text": "stdio.h",
                             "font-weight": "bold",
                             "priority": 1,
-                            "expandState": "collapse"
+                            "expandState": "expand"
                         },
                         "children": [
                             {
@@ -855,7 +861,7 @@
                                     "text": "通用输入输出",
                                     "font-weight": "bold",
                                     "priority": 1,
-                                    "expandState": "expand"
+                                    "expandState": "collapse"
                                 },
                                 "children": [
                                     {
@@ -888,6 +894,27 @@
                                             "font-weight": "bold",
                                             "priority": 2,
                                             "note": "### params\n\t1. char * 字符数组\n    2. char * 格式字符串\n    3. ...(从右往左执行，压栈)\n### return\n    1. 打印字符个数\n    2. 错误: 负数\n### char \\* 参数标记\n\t1. %s 字符串\n    2. %% 打印一个%\n    3. .数字 表示小数精度\n    4. %td ptrdiff_t 指针之间的差值\n    5. %zd size_t sizeof返回类型\n### char \\* 格式标记\n\t1. %-20s 左对齐\n    2. %+6.2f 加号\n    3. % d(前导空格/0) 若为负数，\n    空格变符号\n    4. %#o 加进制的0 0x"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "cisv8twz1b40",
+                                    "created": 1648203123255,
+                                    "text": "文件操作函数",
+                                    "priority": 1,
+                                    "font-weight": "bold"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cisv95cxbso0",
+                                            "created": 1648203148165,
+                                            "text": "fopen()",
+                                            "font-weight": "bold",
+                                            "priority": 2
                                         },
                                         "children": []
                                     }
@@ -966,6 +993,16 @@
                                     "text": "rand()/srand()",
                                     "priority": 2,
                                     "note": "## srand()\n### result\n\t- 重置随机种子"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "cisuv50e1j40",
+                                    "created": 1648202050308,
+                                    "text": "free()/malloc()/calloc()",
+                                    "priority": 2,
+                                    "font-weight": "bold"
                                 },
                                 "children": []
                             }
