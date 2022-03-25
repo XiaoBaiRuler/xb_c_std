@@ -25,7 +25,7 @@
                     "text": "编译执行流程",
                     "priority": 1,
                     "note": "编写代码 => .c .h 源代码\n编译代码 => .obj/.o 文件(仅编写代码的机器码)\n链接代码 => .exe(还包含库函数和启动代码的机器码)\n",
-                    "expandState": "expand"
+                    "expandState": "collapse"
                 },
                 "children": [
                     {
@@ -46,9 +46,44 @@
                             "text": "链接",
                             "priority": 2,
                             "font-weight": "bold",
-                            "note": "**链接命令**\ngcc xxx.o -o test.exe"
+                            "note": "**链接命令**\ngcc xxx.o -o test.exe",
+                            "expandState": "collapse"
                         },
-                        "children": []
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "cissbe2o2j40",
+                                    "created": 1648194860534,
+                                    "text": "外部链接",
+                                    "font-weight": "bold",
+                                    "priority": 3,
+                                    "note": "- 具有文件作用域的变量，并且没有static修饰\n- 可以在多文件程序中使用"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "cissbj7rshs0",
+                                    "created": 1648194871727,
+                                    "text": "内部链接",
+                                    "font-weight": "bold",
+                                    "priority": 3,
+                                    "note": "- 其中一种具有文件作用域，且static修饰的变量\n- 只能在同一个翻译单元中使用"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "cissbmf21u80",
+                                    "created": 1648194878697,
+                                    "text": "无链接",
+                                    "font-weight": "bold",
+                                    "priority": 3,
+                                    "note": "- 具有块作用域、函数作用域或函数原型作用域的变量\n- 当为自动存储期时，可以使用auto显式声明该变量要覆盖掉外部变量定义"
+                                },
+                                "children": []
+                            }
+                        ]
                     },
                     {
                         "data": {
@@ -56,7 +91,8 @@
                             "created": 1648133753754,
                             "text": "执行",
                             "priority": 2,
-                            "font-weight": "bold"
+                            "font-weight": "bold",
+                            "expandState": "collapse"
                         },
                         "children": [
                             {
@@ -65,9 +101,69 @@
                                     "created": 1648133788873,
                                     "text": "命令行参数",
                                     "font-weight": "bold",
-                                    "priority": 3
+                                    "priority": 3,
+                                    "note": "int main(int argc, char *argv[])\n### param\n\t- int argc 参数个数\n    - char *[] \n    \t- 第一个 程序名\n        - 第二个 第一个参数\n        - ..."
                                 },
                                 "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "cissh90tee80",
+                                    "created": 1648195319723,
+                                    "text": "存储期",
+                                    "font-weight": "bold",
+                                    "priority": 3,
+                                    "layout_right_offset": {
+                                        "x": 4,
+                                        "y": -15
+                                    },
+                                    "expandState": "expand"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cisshgkmbps0",
+                                            "created": 1648195336158,
+                                            "text": "静态存储期",
+                                            "font-weight": "bold",
+                                            "priority": 4,
+                                            "note": "- 程序执行期间\n- eg: \n\t- 含文件作用域的变量\n    - static 修饰的变量\n- 会默认初始化0\n- 只能初始化一次，必须在该变量定义时"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "cisshpkjvhc0",
+                                            "created": 1648195355745,
+                                            "text": "线程存储期",
+                                            "font-weight": "bold",
+                                            "priority": 4,
+                                            "note": "- 从被声明时到线程结束一直存在\n- eg: 以关键字_Thread_local声明一个对象时，每个线程都获得该变量的私有备份"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "cisshvt1mj40",
+                                            "created": 1648195369319,
+                                            "text": "自动存储期",
+                                            "font-weight": "bold",
+                                            "priority": 4,
+                                            "note": "- 块作用域的变量\n- 不会初始化"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "cissi2gnsjk0",
+                                            "created": 1648195383808,
+                                            "text": "动态分配存储期",
+                                            "font-weight": "bold",
+                                            "priority": 4
+                                        },
+                                        "children": []
+                                    }
+                                ]
                             }
                         ]
                     },
@@ -394,7 +490,10 @@
                                 "data": {
                                     "id": "ciq2as0u6hs0",
                                     "created": 1647918343763,
-                                    "text": "auto/register/restrict"
+                                    "text": "auto/register/restrict",
+                                    "note": "- auto 显式强调覆盖掉外部定义的同名 变量\n- register 声明寄存器变量，无法获取寄存器变量地址，存储在CPU的寄存器中\n\t- 比普通的访问和处理的速度快\n    - 块作用域，无链接和自动存储期\n    - 存不了double那么大的空间",
+                                    "priority": 3,
+                                    "font-weight": "bold"
                                 },
                                 "children": []
                             },
@@ -402,7 +501,10 @@
                                 "data": {
                                     "id": "ciq2cqijmj40",
                                     "created": 1647918497209,
-                                    "text": "extern"
+                                    "text": "extern",
+                                    "priority": 3,
+                                    "font-weight": "bold",
+                                    "note": "- 声明在引用其他文件的外部链接的变量，函数等"
                                 },
                                 "children": []
                             },
@@ -411,7 +513,9 @@
                                     "id": "ciq2cw4l5e00",
                                     "created": 1647918509425,
                                     "text": "static",
-                                    "note": "**static 是C90添加的**"
+                                    "note": "**static 是C90添加的**\n- 修饰文件变量表示内部链接\n- 修饰自动周期的变量-提供静态存储期\n- 默认初始化为0\n\n- 修饰函数为静态函数(内联函数)\n\t- 只能用于其定义所在的文件(防止同名冲突)\n",
+                                    "priority": 3,
+                                    "font-weight": "bold"
                                 },
                                 "children": []
                             },
@@ -458,8 +562,8 @@
                             "id": "cir58jk52600",
                             "created": 1648028191897,
                             "text": "算术运算符",
-                            "font-weight": "bold",
                             "priority": 2,
+                            "font-weight": "bold",
                             "note": "### - + ++ -- sizeof (**r->l**)\n### * / % (l->r)\n### + - (l->r)"
                         },
                         "children": []
@@ -469,8 +573,8 @@
                             "id": "cir59ccspbk0",
                             "created": 1648028254580,
                             "text": "关系运算符",
-                            "font-weight": "bold",
                             "priority": 2,
+                            "font-weight": "bold",
                             "note": "### > < <= >= (l->r) \n### == != (l->r)"
                         },
                         "children": []
@@ -535,7 +639,7 @@
                     "created": 1647930478690,
                     "text": "库函数",
                     "priority": 1,
-                    "expandState": "expand",
+                    "expandState": "collapse",
                     "note": "### &&\n### ||\n### ！"
                 },
                 "children": [
@@ -544,10 +648,10 @@
                             "id": "ciq6mxba2ao0",
                             "created": 1647930580088,
                             "text": "string.h",
-                            "priority": 1,
                             "font-weight": "bold",
-                            "expandState": "collapse",
-                            "note": "- 以'\\0'结尾的char型数组\n- 字符串常量: \"abc\", 可以\\*取地址, 特别的: 相同字符串常量是都一个常量，相同地址(静态存储区)\n- char a[] = \"abc\"; 会赋值到非静态存储区\n"
+                            "priority": 1,
+                            "note": "- 以'\\0'结尾的char型数组\n- 字符串常量: \"abc\", 可以\\*取地址, 特别的: 相同字符串常量是都一个常量，相同地址(静态存储区)\n- char a[] = \"abc\"; 会赋值到非静态存储区\n",
+                            "expandState": "collapse"
                         },
                         "children": [
                             {
@@ -639,7 +743,7 @@
                             "text": "stdio.h",
                             "font-weight": "bold",
                             "priority": 1,
-                            "expandState": "expand"
+                            "expandState": "collapse"
                         },
                         "children": [
                             {
@@ -796,8 +900,8 @@
                             "id": "cirvmkmxib40",
                             "created": 1648102640199,
                             "text": "ctype.h",
-                            "font-weight": "bold",
                             "priority": 1,
+                            "font-weight": "bold",
                             "expandState": "collapse"
                         },
                         "children": [
@@ -820,6 +924,71 @@
                                     "font-weight": "bold",
                                     "priority": 2,
                                     "note": "## 变小/大写字符"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "cisr395akh40",
+                            "created": 1648191401786,
+                            "text": "stdlib.h",
+                            "priority": 1,
+                            "font-weight": "bold",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "cisr3kftgrs0",
+                                    "created": 1648191426367,
+                                    "text": "strtol()/strtod()",
+                                    "note": "### param\n\t- char * 要转的字符串\n    - char ** 空子符的地址的地址\n    - size_t 进制\n### return\n\t- long / double\n### result\n\t- 会检测输入为非数字的情况",
+                                    "priority": 2
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "cisrb02shd40",
+                                    "created": 1648192008957,
+                                    "text": "atoi()/atol()/atof()",
+                                    "priority": 2,
+                                    "note": "### param\n\t- char * 要转数字的字符串\n### return\n\t- int/long/double\n### result\n\t- 对于非数字，返回0"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "cist6p68blc0",
+                                    "created": 1648197313983,
+                                    "text": "rand()/srand()",
+                                    "priority": 2,
+                                    "note": "## srand()\n### result\n\t- 重置随机种子"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "cist4yep1ns0",
+                            "created": 1648197177358,
+                            "text": "time.h",
+                            "priority": 2,
+                            "font-weight": "bold",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "cist55xb7ao0",
+                                    "created": 1648197193721,
+                                    "text": "time()",
+                                    "font-weight": "bold",
+                                    "note": "### return\n\t- time_t\n### result\n\t- 返回系统时间",
+                                    "priority": 3
                                 },
                                 "children": []
                             }
