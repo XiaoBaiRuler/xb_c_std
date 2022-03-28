@@ -35,7 +35,7 @@
                             "text": "编译",
                             "priority": 2,
                             "font-weight": "bold",
-                            "note": "**编译命令**\ngcc xxx.c -o test.o\ngcc xxx.c -o test.obj"
+                            "note": "**编译命令**\ngcc xxx.c -o test.o\ngcc xxx.c -o test.obj\n\n**编译器解释**\ntypedef xx xxx"
                         },
                         "children": []
                     },
@@ -530,7 +530,9 @@
                                     "id": "ciq2d25tk540",
                                     "created": 1647918522561,
                                     "text": "struct/union/enum",
-                                    "note": "**enum 是C90添加的**"
+                                    "note": "**enum 是C90添加的**\n## struct\n#### 匿名结构\n    struct name{\n    \tstruct{\n           char first[20];\n           char last[20];\n        }\n    };\n    - 可以直接访问 name.first\n   \n    ",
+                                    "priority": 3,
+                                    "font-weight": "bold"
                                 },
                                 "children": []
                             },
@@ -560,7 +562,7 @@
                     "created": 1648028175177,
                     "text": "运算符",
                     "priority": 1,
-                    "expandState": "collapse"
+                    "expandState": "expand"
                 },
                 "children": [
                     {
@@ -636,6 +638,17 @@
                             "note": "### &取地址运算符\n### \\*地址运算符 解引用"
                         },
                         "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "civ6a2g5u940",
+                            "created": 1648437372316,
+                            "text": "位操作",
+                            "priority": 1,
+                            "font-weight": "bold",
+                            "note": "- ~ 按位取反\n- & 按位与\n- | 按位或\n- ^ 按位异或"
+                        },
+                        "children": []
                     }
                 ]
             },
@@ -645,7 +658,7 @@
                     "created": 1647930478690,
                     "text": "库函数",
                     "priority": 1,
-                    "expandState": "expand",
+                    "expandState": "collapse",
                     "note": null
                 },
                 "children": [
@@ -749,7 +762,7 @@
                             "text": "stdio.h",
                             "font-weight": "bold",
                             "priority": 1,
-                            "expandState": "expand"
+                            "expandState": "collapse"
                         },
                         "children": [
                             {
@@ -834,10 +847,10 @@
                                         "data": {
                                             "id": "cirvlrvsvhk0",
                                             "created": 1648102577609,
-                                            "text": "getchar()",
+                                            "text": "getchar()/putchar()",
                                             "priority": 2,
                                             "font-weight": "bold",
-                                            "note": "### param\n\t- char"
+                                            "note": "## getchar()\n#### param\n\t- char\n## putchar()\n#### return\n\t- 键盘输入的字符(any)\n"
                                         },
                                         "children": []
                                     },
@@ -845,10 +858,10 @@
                                         "data": {
                                             "id": "cirvk3qta540",
                                             "created": 1648102446700,
-                                            "text": "putchar()",
+                                            "text": "getc()/putc()",
                                             "priority": 2,
                                             "font-weight": "bold",
-                                            "note": "### return\n\t- 键盘输入的字符(any)"
+                                            "note": "## getc\n#### param\n\t- FILE *\n#### return\n\t- char \n    - 文件结尾 - EOF\n## putc\n#### param\n\t- char 要读入的字符\n\t- FILE * 指向读入文件的指针"
                                         },
                                         "children": []
                                     }
@@ -868,21 +881,10 @@
                                         "data": {
                                             "id": "ciq6oy4s1uo0",
                                             "created": 1647930738600,
-                                            "text": "printf()",
+                                            "text": "printf()/scanf()",
                                             "font-weight": "bold",
                                             "priority": 2,
-                                            "note": "### params\n    1. char *\n    2. ...(从右往左执行，压栈)\n### return\n    1. 打印字符个数\n    2. 错误: 负数\n### char \\* 参数标记\n\t1. %s 字符串\n    2. %% 打印一个%\n    3. .数字 表示小数精度\n    4. %td ptrdiff_t 指针之间的差值\n    5. %zd size_t sizeof返回类型\n### char \\* 格式标记\n\t1. %-20s 左对齐\n    2. %+6.2f 加号\n    3. % d(前导空格/0) 若为负数，\n    空格变符号\n    4. %#o 加进制的0 0x\n"
-                                        },
-                                        "children": []
-                                    },
-                                    {
-                                        "data": {
-                                            "id": "ciq6ovwlbbs0",
-                                            "created": 1647930733752,
-                                            "text": "scanf()",
-                                            "font-weight": "bold",
-                                            "priority": 2,
-                                            "note": "### params\n    1. char *\n    2. void* ...(从右往左)\n### return\n    1. 输入个数\n    2. 错误: 负数\n### 格式说明符\n\t1. * %*d 抑制赋值\n    2. 数字 %10d 最长宽度，\n    或遇到空白符时停止\n### 输入格式说明符\n\t1. %s 从第一个非空白开始，\n    到下一个空白结束\n    2. ' %c' 从第一个非空白处\n    读取字符\n    3. '%c' 读取第一个字符\n### 注意事项\n\t1. 在第一个出错处停止读取输入\n    "
+                                            "note": "## 1. printf\n### params\n    1. char *\n    2. ...(从右往左执行，压栈)\n### return\n    1. 打印字符个数\n    2. 错误: 负数\n### char \\* 参数标记\n\t1. %s 字符串\n    2. %% 打印一个%\n    3. .数字 表示小数精度\n    4. %td ptrdiff_t 指针之间的差值\n    5. %zd size_t sizeof返回类型\n### char \\* 格式标记\n\t1. %-20s 左对齐\n    2. %+6.2f 加号\n    3. % d(前导空格/0) 若为负数，\n    空格变符号\n    4. %#o 加进制的0 0x\n## 2. scanf\n### params\n    1. char *\n    2. void* ...(从右往左)\n### return\n    1. 输入个数\n    2. 错误: 负数\n### 格式说明符\n\t1. * %*d 抑制赋值\n    2. 数字 %10d 最长宽度，\n    或遇到空白符时停止\n### 输入格式说明符\n\t1. %s 从第一个非空白开始，\n    到下一个空白结束\n    2. ' %c' 从第一个非空白处\n    读取字符\n    3. '%c' 读取第一个字符\n### 注意事项\n\t1. 在第一个出错处停止读取输入\n"
                                         },
                                         "children": []
                                     },
@@ -896,6 +898,17 @@
                                             "note": "### params\n\t1. char * 字符数组\n    2. char * 格式字符串\n    3. ...(从右往左执行，压栈)\n### return\n    1. 打印字符个数\n    2. 错误: 负数\n### char \\* 参数标记\n\t1. %s 字符串\n    2. %% 打印一个%\n    3. .数字 表示小数精度\n    4. %td ptrdiff_t 指针之间的差值\n    5. %zd size_t sizeof返回类型\n### char \\* 格式标记\n\t1. %-20s 左对齐\n    2. %+6.2f 加号\n    3. % d(前导空格/0) 若为负数，\n    空格变符号\n    4. %#o 加进制的0 0x"
                                         },
                                         "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "civ539g92jc0",
+                                            "created": 1648434017900,
+                                            "text": "fprintf()/fscanf()",
+                                            "priority": 2,
+                                            "font-weight": "bold",
+                                            "note": "## 1. fprintf\n#### param\n\t- FILE * 输出文件\n    - char * 字符串\n    - char * 格式\n#### 其他类似printf\n## 2. fscanf\n#### param\n\t- FILE * 输入文件\n    - char * 输入格式\n    - xxx 存放输入数据变量地址\n#### 其他类似scanf"
+                                        },
+                                        "children": []
                                     }
                                 ]
                             },
@@ -905,7 +918,9 @@
                                     "created": 1648203123255,
                                     "text": "文件操作函数",
                                     "priority": 1,
-                                    "font-weight": "bold"
+                                    "font-weight": "bold",
+                                    "expandState": "collapse",
+                                    "note": "- stdin 标准输入\n- stdout 标准输出\n- stderr 标准错误"
                                 },
                                 "children": [
                                     {
@@ -914,7 +929,141 @@
                                             "created": 1648203148165,
                                             "text": "fopen()",
                                             "font-weight": "bold",
+                                            "priority": 2,
+                                            "note": "#### param\n\t- char * 路径和文件名\n    - char * mode\n    \t- r/r+\n        - w/w+\n        - a/a+\n        - rb/ab/wb\n        - x(c 11)\n        1. 打开失败，原文件不会删除\n        2. 环境允许下，x可以独占当前打开的文件，其他线程无法访问.\n        3. wx 模式打开一个存在文件会失败\n#### return \n\t- FILE * 文件指针\n#### result\n\t- 获得指向包含文件信息的数据对象"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "civ4zijtdb40",
+                                            "created": 1648433724250,
+                                            "text": "fclose()",
+                                            "font-weight": "bold",
+                                            "priority": 2,
+                                            "note": "#### param\n\t- FILE *\n#### return\n\t- 成功 0\n    - 失败 EOF"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "civ572mnyjc0",
+                                            "created": 1648434316507,
+                                            "text": "fseek()",
+                                            "font-weight": "bold",
+                                            "priority": 2,
+                                            "note": "#### param\n\t- FILE *\n    - long 偏移量\n    \t- 正 前移\n        - 负 后移\n        - 0 不动\n    - 起始点(文件模式才保证可移植性)\n    \t- SEEK_SET 文件开始处\n        - SEEK_CUR 当前位置\n        - SEEK_END 文件末尾\n#### return\n\t- int \n    \t- 0 成功\n        - -1 错误，eg: 超出范围\n#### result\n\t- 移动指针wei'zhi"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "civ5c61te8o0",
+                                            "created": 1648434715775,
+                                            "text": "ftell()",
+                                            "font-weight": "bold",
+                                            "priority": 2,
+                                            "note": "#### param\n\t- FILE *\n#### return \n\t- long 距文件开始处的字节数"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "civ5hozuclc0",
+                                            "created": 1648435148835,
+                                            "text": "fgetpos()/fsetpos()",
+                                            "font-weight": "bold",
+                                            "priority": 2,
+                                            "note": "## 处理大文件的\n## fgetpos\n#### param\n\t- FILE *\n    - fpos_t *\n#### return \n\t- 0 成功\n    - !0 失败\n## fsetpos\n#### param\n\t- FILE *\n    - fpos_t *\n#### return\n\t- 0 成功\n    - !0 失败\n#### result\n\t- 设置文件指针指向fpos_t指定的位置"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "civ5lmgpqew0",
+                                            "created": 1648435456781,
+                                            "text": "ungetc()",
+                                            "font-weight": "bold",
+                                            "priority": 2,
+                                            "note": "#### param\n\t- int c\n    - FILE* fp\n#### return\n\t- int\n#### result\n\t- 把c指定的字符放回输入流中"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "civ5mpyggtc0",
+                                            "created": 1648435542749,
+                                            "text": "fflush()",
+                                            "priority": 2,
+                                            "font-weight": "bold",
+                                            "note": "#### param\n\t- FILE *\n#### return\n\t- int\n#### result\n\t- 刷新缓冲区"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "civ5ns0dvlk0",
+                                            "created": 1648435625583,
+                                            "text": "setvbuf()",
+                                            "font-weight": "bold",
+                                            "priority": 2,
+                                            "note": "#### param\n\t- FILE *\n    - char * buf\n    \t- 待使用的存储区\n    - int mode\n    \t- _IOFBF 完全缓冲\n        - _IOLBF 行缓冲\n        - _IONBF\n    - size_t size\n    \t- 缓冲区的大小\n#### return\n\t- 0 成功\n    - !0 失败\n#### result\n\t- 打开文件，未进行其他操作前，可以使用来设置缓冲区大小\n    "
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "civ60kht67s0",
+                                            "created": 1648436627957,
+                                            "text": "feof()/ferror()",
+                                            "font-weight": "bold",
+                                            "priority": 2,
+                                            "note": "## feof\n#### param\n\t- FILE *\n#### return \n\t- 非0 到末尾\n    - 0 没到末尾\n## ferror\n#### param\n\t- FILE *\n#### return\n\t- 非0 出现读写错误\n    - 0 没有错误"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "civ5xn0v9ig0",
+                                    "created": 1648436398370,
+                                    "text": "二进制输入输出",
+                                    "font-weight": "bold",
+                                    "priority": 1,
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "civ5xts7uds0",
+                                            "created": 1648436413084,
+                                            "text": "fread()",
+                                            "font-weight": "bold",
+                                            "note": "#### param\n\t- const void * restrict 指向待写入内容\n    - size_t 大小\n    - size_t 数量\n    - FILE * fp\n#### return\n\t- 成功 数量\n    - 失败 比数量少",
                                             "priority": 2
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "civ5xw9ajl40",
+                                            "created": 1648436418470,
+                                            "text": "fwrite()",
+                                            "font-weight": "bold",
+                                            "note": "#### param\n\t- const void * restrict 待填入地址\n    - size_t 大小\n    - size_t 数量\n    - FILE * fp\n#### return\n\t- 成功 数量\n    - 失败 比数量少",
+                                            "priority": 2
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "civ67k8dtf40",
+                                            "created": 1648437175936,
+                                            "text": "rewrite()",
+                                            "note": "确保文件指针在开始处",
+                                            "priority": 3,
+                                            "font-weight": "bold"
                                         },
                                         "children": []
                                     }
