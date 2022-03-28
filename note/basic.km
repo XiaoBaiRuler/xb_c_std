@@ -14,9 +14,53 @@
                     "created": 1647931209148,
                     "text": "预处理器",
                     "priority": 1,
-                    "note": "1. 定义明示常量\n#define A 100"
+                    "note": "1. 定义明示常量\n#define A 100\n#undef A\n2. 包含其他文件\n#include \n3. 判断\n#ifdef\n#else\n#ifndef\n#endif\n#if\n#elif\n4. 重置宏报告的行号和文件名\n#line\n5. 编译过程终端\n#error\n6. 把编译器指令放入源代码中\n#pragma\n\n"
                 },
-                "children": []
+                "children": [
+                    {
+                        "data": {
+                            "id": "civb7f6bvjs0",
+                            "created": 1648451270477,
+                            "text": "预处理之前，编译器",
+                            "font-weight": "bold",
+                            "priority": 2
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "civb9miands0",
+                            "created": 1648451443167,
+                            "text": "##运算符",
+                            "priority": 2,
+                            "font-weight": "bold",
+                            "note": "- 把两个记号合成一个记号\n#define XNAME(n) x##n;\n- x1"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "civbbga5eqo0",
+                            "created": 1648451586342,
+                            "text": "...和__VA_ARGS__",
+                            "font-weight": "bold",
+                            "priority": 2,
+                            "note": "#define PR(...) printf(__VA_ARGS__)\n不定参数"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "civbedj61000",
+                            "created": 1648451815449,
+                            "text": "预定义宏",
+                            "font-weight": "bold",
+                            "priority": 2,
+                            "note": "- __DATE__ 预处理的日期\n- __FILE__ 当前源码文件\n- __LINE__ 当前源码文件所在的行\n- __STDC__ 1 - C标准\n- __STDC_HOSTED__ 1: 本机环境; 0\n- __STDC_VERSION__ \n\t- 199901L C99\n    - 201112L C11\n- __TIME__ 翻译代码时间(hh:mm:ss)\n\n- 预定义标识符 __func__ 当前的函数名"
+                        },
+                        "children": []
+                    }
+                ]
             },
             {
                 "data": {
@@ -211,7 +255,7 @@
                     "created": 1647917757880,
                     "text": "关键字",
                     "priority": 1,
-                    "expandState": "collapse"
+                    "expandState": "expand"
                 },
                 "children": [
                     {
@@ -406,22 +450,6 @@
                             },
                             {
                                 "data": {
-                                    "id": "ciq2ivib7w80",
-                                    "created": 1647918978263,
-                                    "text": "_Generic"
-                                },
-                                "children": []
-                            },
-                            {
-                                "data": {
-                                    "id": "ciq2jggg8jc0",
-                                    "created": 1647919023863,
-                                    "text": "_Noreturn"
-                                },
-                                "children": []
-                            },
-                            {
-                                "data": {
                                     "id": "ciq2jl60yn40",
                                     "created": 1647919034117,
                                     "text": "_Static_assert"
@@ -445,7 +473,8 @@
                             "text": "特殊",
                             "priority": 2,
                             "font-weight": "bold",
-                            "expandState": "collapse"
+                            "expandState": "expand",
+                            "note": "__Generic(x, int : 0, \\\n\tfloat: 1,\\\n    double: 2,\\\n    default: 3)"
                         },
                         "children": [
                             {
@@ -530,7 +559,7 @@
                                     "id": "ciq2d25tk540",
                                     "created": 1647918522561,
                                     "text": "struct/union/enum",
-                                    "note": "**enum 是C90添加的**\n## struct\n#### 匿名结构\n    struct name{\n    \tstruct{\n           char first[20];\n           char last[20];\n        }\n    };\n    - 可以直接访问 name.first\n   \n    ",
+                                    "note": "**enum 是C90添加的**\n## struct\n#### 匿名结构\n    struct name{\n    \tstruct{\n           char first[20];\n           char last[20];\n        }\n    };\n    - 可以直接访问 name.first\n## union\n\t- 最大的那个字节作为实际字节大小\n    - 只能存一个\n    union name{\n    \tchar first[20];\n        char last[21];\n    };\n## enum\n\t- 0 1 2 ...\n    enum rgb{\n    \tred, green, blue\n    };\n    ",
                                     "priority": 3,
                                     "font-weight": "bold"
                                 },
@@ -538,9 +567,22 @@
                             },
                             {
                                 "data": {
+                                    "id": "ciq2ivib7w80",
+                                    "created": 1647918978263,
+                                    "text": "_Generic",
+                                    "font-weight": "bold",
+                                    "priority": 3
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
                                     "id": "ciq2d4xa9ow0",
                                     "created": 1647918528575,
-                                    "text": "inline"
+                                    "text": "inline",
+                                    "priority": 3,
+                                    "font-weight": "bold",
+                                    "note": "- 内联函数\ninline static void eate(){\n\n}"
                                 },
                                 "children": []
                             },
@@ -548,7 +590,18 @@
                                 "data": {
                                     "id": "ciq2d89yzco0",
                                     "created": 1647918535872,
-                                    "text": "typedef"
+                                    "text": "typedef",
+                                    "priority": 2
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciq2jggg8jc0",
+                                    "created": 1647919023863,
+                                    "text": "_Noreturn",
+                                    "priority": 3,
+                                    "note": "- 函数说明符，说明调用完成后函数不返回主调函数"
                                 },
                                 "children": []
                             }
@@ -562,7 +615,7 @@
                     "created": 1648028175177,
                     "text": "运算符",
                     "priority": 1,
-                    "expandState": "expand"
+                    "expandState": "collapse"
                 },
                 "children": [
                     {
@@ -646,9 +699,22 @@
                             "text": "位操作",
                             "priority": 1,
                             "font-weight": "bold",
-                            "note": "- ~ 按位取反\n- & 按位与\n- | 按位或\n- ^ 按位异或"
+                            "note": "- ~ 按位取反\n- & 按位与\n- | 按位或\n- ^ 按位异或\n- << 左移\n- >> 右移",
+                            "expandState": "collapse"
                         },
-                        "children": []
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "civ6qm7ph080",
+                                    "created": 1648438669168,
+                                    "text": "位字段",
+                                    "font-weight": "bold",
+                                    "priority": 2,
+                                    "note": "struct {\n\tunsigned int a : 1;\n\tunsigned int b : 1;\n\tunsigned int c : 1;\n\tunsigned int d : 1;\n}prnt;\n- 要保证对齐，不然会有匿名的空间"
+                                },
+                                "children": []
+                            }
+                        ]
                     }
                 ]
             },
@@ -658,7 +724,7 @@
                     "created": 1647930478690,
                     "text": "库函数",
                     "priority": 1,
-                    "expandState": "collapse",
+                    "expandState": "expand",
                     "note": null
                 },
                 "children": [
@@ -752,6 +818,17 @@
                                         "children": []
                                     }
                                 ]
+                            },
+                            {
+                                "data": {
+                                    "id": "civbyqngeg80",
+                                    "created": 1648453411290,
+                                    "text": "memcpy()/memmove()",
+                                    "font-weight": "bold",
+                                    "priority": 2,
+                                    "note": "## 2. memcpy\n#### param\n\t- void * restrict s1\n    - const void * restrict s2\n    - size_t n\n#### return\n\t- void *\n#### result\n\t- 假设没有空间重叠，进行赋值\n## 2. memmove\n#### param\n\t- void * s1\n    - const void * s2\n    - size_t n\n#### return\n\t- void *\n#### result\n\t- 先赋值给临时缓冲区，在拷贝到最终目的地"
+                                },
+                                "children": []
                             }
                         ]
                     },
@@ -1154,8 +1231,40 @@
                                     "font-weight": "bold"
                                 },
                                 "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "civbtktqsiw0",
+                                    "created": 1648453006788,
+                                    "text": "exit()/atexit(function *)",
+                                    "font-weight": "bold",
+                                    "priority": 2,
+                                    "note": "- exit 停止程序\n- atexit(function * ) 在停止之前，调用的会调用的函数，新入后执行\n\t- function * 必须void xx(void)"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "civbvi11k940",
+                                    "created": 1648453157428,
+                                    "text": "qsort()",
+                                    "font-weight": "bold",
+                                    "priority": 1,
+                                    "note": "#### param\n\t- void * base 待排序数据首指针\n    - size_t 待排序项的数量\n    - size_t 每个元素的大小\n    - int (*compar)(const void *, const void *),比较函数指针\n    \t- > 正数\n        - < 负数\n        - 0 相等\n#### return \n\t- void\n#### result\n\t- 原地排序nlog(n)\n    "
+                                },
+                                "children": []
                             }
                         ]
+                    },
+                    {
+                        "data": {
+                            "id": "civbsfktwy80",
+                            "created": 1648452917001,
+                            "text": "math.h",
+                            "priority": 1,
+                            "font-weight": "bold"
+                        },
+                        "children": []
                     },
                     {
                         "data": {
@@ -1210,6 +1319,16 @@
                                 "children": []
                             }
                         ]
+                    },
+                    {
+                        "data": {
+                            "id": "civbyf6cx8w0",
+                            "created": 1648453386311,
+                            "text": "assert.h",
+                            "font-weight": "bold",
+                            "priority": 4
+                        },
+                        "children": []
                     }
                 ]
             }
